@@ -8,7 +8,6 @@
       = f.email_field :email, autofocus: true, autocomplete: "email", class: "text"
     .field
       = f.label :password
-      - if @minimum_password_length
       %br/
       = f.password_field :password, autocomplete: "new-password", class: "text"
     .field
