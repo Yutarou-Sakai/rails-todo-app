@@ -12,7 +12,7 @@ $back-icon-size: 16px;
   font-weight: bold;
 
   a {
-    color: white;
+    color: rgb(32, 32, 32);
   }
 
   &_loginBtn {
@@ -25,7 +25,7 @@ $back-icon-size: 16px;
   }
 
   &_title {
-    color: white;
+    color: rgb(37, 36, 36);
     line-height: $avatar-size;
     font-size: $font-lg;
   }
