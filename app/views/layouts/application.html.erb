@@ -19,7 +19,7 @@
       <div class="dropdown">
         <%= image_tag 'S.jpg', class: "header_avatar dropbtn" %>
         <div class="dropdown_content">
-          <%= link_to"ログアウト", "root_path" %>
+          <%= link_to"ログアウト", destroy_user_session_path, :method => :delete %>
         </div>
       </div>
     </header>
