@@ -11,6 +11,19 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="header_title">
+        <a href="root_path">Boards</a>
+      </div>
+
+      <div class="dropdown">
+        <%= image_tag 'S.jpg', class: "header_avatar dropbtn" %>
+        <div class="dropdown_content">
+          <%= link_to"ログアウト", "root_path" %>
+        </div>
+      </div>
+    </header>
+
     <%# deviseのflashメッセージ設定　%>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
