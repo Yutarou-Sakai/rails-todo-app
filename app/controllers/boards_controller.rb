@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
 
-    def index
-        
+    def index #boardの一覧
+
     end
 
 end
