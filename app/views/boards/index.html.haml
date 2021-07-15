@@ -1,4 +1,5 @@
 .container
+    %h2 All Boards
     - @boards.each do |board|
         = link_to board_path(board) do
             .card
@@ -8,7 +9,7 @@
                     .card_text
                         = board.content
                     .card_detail
-                        = image_tag 'S.jpg'
+                        = image_tag current_user.avatar_image
     = link_to new_board_path do
         .add_new_board
             .add_new_board_title
