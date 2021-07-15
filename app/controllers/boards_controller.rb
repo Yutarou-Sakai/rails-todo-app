@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
 
     def index #boardの一覧
-
+        @boards = Board.all
     end
 
     def new

@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :boards, dependent: :destroy #このユーザーが削除されたら紐づくボードも消す
+
+  def display_name #ユーザーの仮名、メールアドレスの@より前の部分を切り取り
+    self.email.split('@').first
+  end
 end

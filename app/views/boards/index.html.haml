@@ -1,1 +1,15 @@
-%h1.title Hello World!!
+.container
+    - @boards.each do |board|
+        = link_to board_path(board) do
+            .card
+                .card_content
+                    .card_title
+                        = board.title
+                    .card_text
+                        = board.content
+                    .card_detail
+                        = image_tag 'S.jpg'
+    = link_to new_board_path do
+        .add_new_board
+            .add_new_board_title
+                %p + Add new board
