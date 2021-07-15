@@ -7,6 +7,10 @@ class User < ApplicationRecord
   has_many :boards, dependent: :destroy #ユーザーは複数のボードを持つ
   has_one :profile, dependent: :destroy #ユーザーは１つのプロフィールを持つ
 
+  def has_written?(board) #ユーザーがボードを持っているか判定
+    boards.exists?(id: board.id)
+  end
+
   def display_name #ユーザーの仮名、メールアドレスの@より前の部分を切り取り
     profile&.nickname || self.email.split('@').first
   end
