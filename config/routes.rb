@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'boards#index'
 
   resources :boards do
-    resources :tasks
+    resources :tasks, shallow: true #index, new, createはBoardのidを必要
   end
   resource :profile, only: [:show, :edit, :update]
 end

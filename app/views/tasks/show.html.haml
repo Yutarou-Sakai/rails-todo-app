@@ -1,0 +1,18 @@
+.container
+  .task
+    .task_content
+      .task_title
+        = @task.title
+      - if @task.eyecatch.attached?
+        .task_image
+          = image_tag @task.eyecatch
+      .task_text
+        = @task.content
+      .task_detail
+        - if user_signed_in?
+          .task_detail_actions
+            .dropdown
+              = image_tag 'actions.svg', class: 'dropbtn'
+              .dropdown_content.mini
+                = link_to '編集する',  edit_task_path(@task)
+                = link_to '削除する',  task_path(@task), data: { method: 'delete', confirm: '本当に削除してもいいですか？' }
