@@ -1,12 +1,11 @@
 class CommentsController < ApplicationController
+    before_action :set_task, only: [:new, :create]
 
     def new
-        task = Task.find(params[:task_id])
         @comment = task.comments.build
     end
 
     def create
-        task = Task.find(params[:task_id])
         @comment = task.comments.build(comment_params)
         if @comment.save
             redirect_to task_path(task), notice: 'コメントを投稿しました'
@@ -22,5 +21,9 @@ class CommentsController < ApplicationController
         params.require(:comment).permit(:content).merge(
             user_id: current_user.id, task_id: params[:task_id]
         ) #コメントのcontentしか保存しない設定
+    end
+
+    def set_task
+        task = Task.find(params[:task_id])
     end
 end
