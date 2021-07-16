@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :boards, dependent: :destroy #ユーザーは複数のボードを持つ
+  has_many :tasks, dependent: :destroy #ユーザーは複数のタスクを持つ
   has_one :profile, dependent: :destroy #ユーザーは１つのプロフィールを持つ
 
   def has_written?(board) #ユーザーがボードを持っているか判定
