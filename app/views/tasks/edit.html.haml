@@ -1,21 +1,4 @@
 .container.task_form
     %h2 Edit Task
     = form_with(model: @task, url: task_path(@task), local: true) do |f|
-        %div 
-            = f.label :eyecatch, 'アイキャッチ'
-        %div 
-            = f.file_field :eyecatch
-        %div
-            = f.label :title, 'Name'
-        %div
-            = f.text_field :title, class: 'text'
-        %div
-            = f.label :content, 'Description'
-        %div
-            = f.text_area :content
-        %div 
-            = f.label :deadline, 'deadline'
-        %div 
-            = f.date_field :deadline, class: 'text'
-        .actions
-            = f.submit 'Submit', class: 'btn-primary'
+        = render 'form', f: f
