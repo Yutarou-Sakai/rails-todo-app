@@ -16,3 +16,13 @@
               .dropdown_content.mini
                 = link_to '編集する',  edit_task_path(@task)
                 = link_to '削除する',  task_path(@task), data: { method: 'delete', confirm: '本当に削除してもいいですか？' }
+  .comment
+    %h2 Comment
+    - @comments.each do |comment|
+      .task_comment
+        = image_tag comment.user.avatar_image
+        %p= comment.content
+    = link_to new_task_comment_path(@task) do
+      .add_new_board
+        .add_new_board_title
+          %p + Add new Comment

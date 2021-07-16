@@ -18,6 +18,7 @@ class TasksController < ApplicationController
 
     def show
         @task = Task.find(params[:id])
+        @comments = @task.comments
     end
 
     def edit
@@ -37,7 +38,7 @@ class TasksController < ApplicationController
     def destroy
         task = current_user.tasks.find(params[:id])
         task.destroy! #!マークで例外ができる
-        redirect_to board_path(task.board_id), notice: '削除しました'
+        redirect_to board_path(Task.board_id), notice: '削除しました'
     end
 
 
