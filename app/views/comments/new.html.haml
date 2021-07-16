@@ -1,0 +1,8 @@
+.container
+    %h2 New Commnet
+    = form_with(model: @comment, url: task_comments_path(@comment.task), local: true) do |f|
+        %div
+            = f.label :content, 'Comment'
+        %div
+            = f.text_area :content
+        = f.submit 'Submit', class: 'btn-primary'
