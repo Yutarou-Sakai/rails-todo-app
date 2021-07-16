@@ -1,21 +1,19 @@
-$image_size: 46px;
+@import './variables';
 
 .comment {
     h2 {
         margin-bottom: 10px;
     }
-    
     .task_comment {
         display: flex;
         margin-bottom: 20px;
-
         img {
             width: $image_size;
             height: $image_size;
-            border: 1px solid rgb(170, 168, 168);
+            border: 1px solid $icon-border-color;
             border-radius: 50%;
+            padding: 5px;
         }
-
         p {
             margin-left: 5px;
         }

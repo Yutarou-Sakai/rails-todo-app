@@ -1,16 +1,15 @@
 class ProfilesController < ApplicationController
     before_action :authenticate_user! #ログインしている人限定
+    before_action :set_profile, only: [:edit, :update]
 
     def show
         @profile = current_user.profile #user.rb に has_one :profile とあるので .profile が使える
     end
 
     def edit
-        @profile = current_user.prepare_profile
     end
 
     def update
-        @profile = current_user.prepare_profile
         @profile.assign_attributes(profile_params) #@profileに対してパラメータの値を合体できる
         if @profile.save
             redirect_to profile_path, notice: 'プロフィールを更新しました'
@@ -23,6 +22,10 @@ class ProfilesController < ApplicationController
     private
     def profile_params #以下の内容だけ保存を許可
         params.require(:profile).permit(:nickname, :avatar)
+    end
+
+    def set_profile
+        @profile = current_user.prepare_profile
     end
 
 end

@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+    before_action :set_board, only: [:edit, :update, :destroy]
 
     def index #boardの一覧
         @boards = Board.all
@@ -26,13 +27,11 @@ class BoardsController < ApplicationController
     end
 
     def edit
-        @board = current_user.boards.find(params[:id])
     end
 
     def update
-        @board = current_user.boards.find(params[:id])
-        if @article.update(board_params)
-            redirect_to board_path(@article), notice: '更新できました'
+        if @board.update(board_params)
+            redirect_to board_path(@board), notice: '更新できました'
         else
             flash.now[:error] = '更新できませんでした'
             render :edit
@@ -40,8 +39,7 @@ class BoardsController < ApplicationController
     end
 
     def destroy
-        board = current_user.boards.find(params[:id])
-        board.destroy! #!マークで例外ができる
+        @board.destroy! #!マークで例外ができる
         redirect_to root_path, notice: '削除しました'
     end
 
@@ -52,4 +50,7 @@ class BoardsController < ApplicationController
         params.require(:board).permit(:title, :content)
     end
 
+    def set_board
+        @board = current_user.boards.find(params[:id])
+    end
 end
