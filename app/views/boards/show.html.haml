@@ -12,7 +12,7 @@
           .card_text
             = task.content
           .card_text
-            = task.deadline
+            = "期限：#{task.deadline}"
           .card_detail
             = image_tag task.user.avatar_image
   = link_to new_board_task_path(@board) do

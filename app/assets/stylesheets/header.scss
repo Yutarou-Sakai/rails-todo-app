@@ -1,9 +1,5 @@
 @import 'variables';
 
-$avatar-size: 40px;
-$header-padding-y: 16px;
-$back-icon-size: 16px;
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -17,7 +13,7 @@ $back-icon-size: 16px;
 
   &_loginBtn {
     background-color: $base-bg-color;
-    height: $avatar-size;
+    height: $header-avatar-size;
     border-radius: 8px;
     font-size: 12px;
     padding: 12px 16px;
@@ -26,13 +22,13 @@ $back-icon-size: 16px;
 
   &_title {
     color: rgb(37, 36, 36);
-    line-height: $avatar-size;
+    line-height: $header-avatar-size;
     font-size: $font-lg;
   }
 
   &_avatar {
-    width: $avatar-size;
-    height: $avatar-size;
+    width: $header-avatar-size;
+    height: $header-avatar-size;
     border-radius: 100%;
   }
 }

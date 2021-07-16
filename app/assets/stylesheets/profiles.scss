@@ -1,7 +1,5 @@
 @import './variables';
 
-$image_size: 56px;
-
 .profilePage {
   margin-top: 24px;
 
@@ -15,8 +13,8 @@ $image_size: 56px;
       justify-content: center;
 
       img {
-        width: $image_size;
-        height: $image_size;
+        width: $profile-image_size;
+        height: $profile-image_size;
       }
     }
 
