@@ -20,6 +20,26 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
     end
 
+    def edit
+        @task = current_user.tasks.find(params[:id])
+    end
+
+    def update
+        @task = current_user.tasks.find(params[:id])
+        if @task.save
+            redirect_to task_path, notice: 'プロフィールを更新しました'
+        else
+            flash.now[:error] = '更新できませんでした'
+            render :edit
+        end
+    end
+
+    def destroy
+        task = current_user.tasks.find(params[:id])
+        task.destroy! #!マークで例外ができる
+        redirect_to board_path(task.board_id), notice: '削除しました'
+    end
+
 
     private
     def task_params
