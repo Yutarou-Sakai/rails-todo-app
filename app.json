@@ -1,0 +1,16 @@
+{
+    "name": "rails board app",
+    "description": "This is board app",
+    "keywords": [],
+    "website": "",
+    "repository": "https://github.com/Yutarou-Sakai/rails-todo-app",
+    "env": {},
+    "addons": [
+        "heroku-postgresql:hobby-dev"
+    ],
+    "buildpacks": [{
+        "url": "heroku/nodejs"
+    }, {
+        "url": "heroku/ruby"
+    }]
+}
